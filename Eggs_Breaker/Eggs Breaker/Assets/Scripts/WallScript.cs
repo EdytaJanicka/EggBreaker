@@ -34,10 +34,10 @@ public class WallScript : MonoBehaviour
         rightCollider.gameObject.AddComponent<BoxCollider2D>();
         leftCollider.gameObject.AddComponent<BoxCollider2D>();
 
-        topCollider.gameObject.AddComponent<Rigidbody2D>();
-        bottomCollider.gameObject.AddComponent<Rigidbody2D>();
-        rightCollider.gameObject.AddComponent<Rigidbody2D>();
-        leftCollider.gameObject.AddComponent<Rigidbody2D>();
+        topCollider.gameObject.AddComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+        bottomCollider.gameObject.AddComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+        rightCollider.gameObject.AddComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+        leftCollider.gameObject.AddComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
 
         
 

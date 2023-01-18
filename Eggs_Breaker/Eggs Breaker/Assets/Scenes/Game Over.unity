@@ -210,9 +210,9 @@ GameObject:
   - component: {fileID: 357772694}
   - component: {fileID: 357772693}
   - component: {fileID: 357772692}
+  - component: {fileID: 357772695}
   - component: {fileID: 357772691}
   - component: {fileID: 357772690}
-  - component: {fileID: 357772695}
   - component: {fileID: 357772696}
   m_Layer: 0
   m_Name: Start Again

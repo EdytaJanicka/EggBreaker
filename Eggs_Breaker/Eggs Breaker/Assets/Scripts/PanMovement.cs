@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PanMovement : MonoBehaviour
 {
@@ -20,21 +18,18 @@ public class PanMovement : MonoBehaviour
 
     private void Update()
     {
-        CanMove = BallLauncher.isBallThrown;
-        if (CanMove == true)
+        if (Input.GetMouseButton(0) && CanMove)
         {
-            if (Input.touchCount > 0)
-            {
-                Touch touch = Input.GetTouch(0);
-                touchPosition = Camera.main.ScreenToWorldPoint(touch.position);
-                touchPosition.z = 0;
-                touchPosition.y = -4;
-                direction = (touchPosition - transform.position);
-                rb.velocity = new Vector2(direction.x, direction.y) * moveSpeed;
-
-                if (touch.phase == TouchPhase.Ended)
-                    rb.velocity = Vector2.zero;
-            }
+            var mousePos = Input.mousePosition;
+            touchPosition = Camera.main.ScreenToWorldPoint(mousePos);
+            touchPosition.z = 0;
+            touchPosition.y = -4;
+            direction = (touchPosition - transform.position);
+            rb.velocity = new Vector2(direction.x, direction.y) * moveSpeed;
+        }
+        else
+        {
+            rb.velocity = Vector2.zero;
         }
     }
 }

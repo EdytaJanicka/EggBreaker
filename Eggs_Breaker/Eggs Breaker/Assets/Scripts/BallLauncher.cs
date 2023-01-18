@@ -1,40 +1,38 @@
-﻿using System.Collections.Generic;
-using UnityEngine;
-using System.Collections;
-using UnityEngine.EventSystems;
-using System;
+﻿using UnityEngine;
 
 public class BallLauncher : MonoBehaviour
 {
-    
-    private Rigidbody2D ball;
-    public static bool isBallThrown;
+    public static bool IsBallThrown;
     public PointsCounter points;
-    void Start()
+    
+    private Rigidbody2D _ball;
+
+    private void Start()
     {
-        ball = GetComponent<Rigidbody2D>();
-        isBallThrown = false;
+        _ball = GetComponent<Rigidbody2D>();
+        IsBallThrown = false;
         
     }
-    void FixedUpdate()
+
+    private void FixedUpdate()
     {
         
         if (Input.GetMouseButtonUp(0))
-        {       if(isBallThrown == false)
+        {       if(IsBallThrown == false)
             {
-                throwBall();
+                ThrowBall();
             }  
         }
     }
       
-    private void throwBall()
+    private void ThrowBall()
     {
         var mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         var mouseDirection = mousePosition - gameObject.transform.position;
         mouseDirection.z = 0.0f;
         mouseDirection = mouseDirection.normalized;
-        ball.AddForce(mouseDirection /50);
-        isBallThrown = true;
+        _ball.AddForce(mouseDirection /50);
+        IsBallThrown = true;
 
     }
     private void OnCollisionEnter2D(Collision2D collision)

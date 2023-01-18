@@ -1,11 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class NotPaused : MonoBehaviour
 {
     public GameObject pauseMenuUI;
-    void Start()
+
+    private void Start()
     {
         pauseMenuUI.SetActive(false);
     }
